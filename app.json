@@ -1,0 +1,13 @@
+{
+    "reponame": "IPLocator",
+    "title": "IPLocator",
+    "abbr": "IPLocator",
+    "tooltip": "The App neet freegeoip.net to supply the location info.",
+    "description": "This app use the IP address to located geological address.", 
+    "highlights": ["App Framework", "Web Services API"],
+    "keywords": ["App Framework", "Web Services API"],
+    "relname": "0.9.0",
+    "visible": "true",
+    "appname": "IPLocator",
+    "apppreview": "false"
+}
