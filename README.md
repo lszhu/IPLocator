@@ -29,3 +29,6 @@ and its infomation.
 ##Caution
 This way to locating is not precise, even the city may be wrong.
 In normal the state/province is reliable
+
+##License
+MIT
