@@ -31,7 +31,7 @@ function show(str, dst) {
 
 /* validate IP Address */
 function validIp(ip) {
-    if (!ip) {
+    if (!ip || ip.trim() == '') {
         return true;
     }
     var re = /(\d+)\.(\d+)\.(\d+)\.(\d+)/;
