@@ -44,8 +44,10 @@
             var button = document.getElementsByClassName('button')[0];
             button.addEventListener('click', function() {
                 var ip = document.getElementsByTagName('input')[0].value;
-                if (!validIp()) {
-                    alert('Invalid IP Address!');
+                if (!validIp(ip)) {
+                    var dst = document.getElementById('ipMsg');
+                    var errMsg = '<ul class="list inset"><li>Invalid IP Address</li></ul>';
+                    dst.innerHTML = errMsg;
                     return;
                 }
                 getText(srcUrl + ip, function(data) {
