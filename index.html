@@ -1,44 +1,67 @@
-<!DOCTYPE html><!--HTML5 doctype-->
+<!DOCTYPE html>
+<!--HTML5 doctype-->
 <html>
+
 <head>
-	<title>Your New Application</title>
-	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0" />
-	<style type="text/css">
-		/* Prevent copy paste for all elements except text fields */
-		*  { -webkit-user-select:none; -webkit-tap-highlight-color:rgba(255, 255, 255, 0); }
-		input, textarea  { -webkit-user-select:text; }
-		body { background-color:white; color:black }
-	</style>
-    <link href="css/icons.css" rel="stylesheet" type="text/css">
-    <link href="css/af.ui.css" rel="stylesheet" type="text/css">
-	<script src='intelxdk.js'></script>
+    <title>Your New Application</title>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,
+	    maximum-scale=1.0, minimum-scale=1.0, user-scalable=0" />
+    <style type="text/css">
+        /* Prevent copy paste for all elements except text fields */
+        * {
+            -webkit-user-select: none;
+            -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+        }
+        input,
+        textarea {
+            -webkit-user-select: text;
+        }
+        body {
+            background-color: white;
+            color: black
+        }
+    </style>
+    <script src='intelxdk.js'>
+        $.ui.useOSThemes = false;
+    </script>
+    <script type="text/javascript">
+        /* Intel native bridge is available */
+        var onDeviceReady = function() {
+            //hide splash screen
+            intel.xdk.device.hideSplashScreen();
+        };
+        document.addEventListener("intel.xdk.device.ready", onDeviceReady, false);
+    </script>
+    <link rel="stylesheet" type="text/css" href="css/af.ui.css" />
+    <link rel="stylesheet" type="text/css" href="css/icons.css" />
+    <script src="js/appframework.min.js"></script>
     <script src="js/appframework.ui.min.js"></script>
-	<script type="text/javascript">
-		/* Intel native bridge is available */
-		var onDeviceReady=function(){
-		//hide splash screen
-		intel.xdk.device.hideSplashScreen();
-		};
-		document.addEventListener("intel.xdk.device.ready",onDeviceReady,false);
-	</script>
 </head>
+
 <body>
-<!-- content goes here-->
-<header>
-    <a id="backButton">Back...</a>
-    <h1>Custom Header</h1>
-</header>
-<div class="panel">
-    <ul class="list">
-        <li class="divider">A</li>
-        <li>Animals</li>
-        <li>Art</li>
-        <li class="divider"></li>
-        <li>Athlete</li>
-        <li>Ant</li>
-    </ul>
-</div>
-<script src="js/api.js"></script>
+    <div id="afui">
+        <div id="header">
+            <!-- any additional HTML you want can go here -->
+        </div>
+        <div id="content">
+            <div class="panel" id="main">
+                <!-- this can really go anywhere in the panel, but we'll put it at the top -->
+                <header>
+                    <a id="backButton">Back...</a>
+                    <h1>IP Locator</h1>
+                </header>
+                <label for="ipAddress">IP Address</label>
+                <input id="ipAddress" type="text" placeholder="IP Address">
+                <button class="button" style="width: 100%">Locate It</button>
+                <div id="ipMsg"></div>
+                <footer>
+                    <a class="icon info" href="#info">About</a>
+                </footer>
+                <!-- content goes here -->
+            </div>
+        </div>
+    </div>
 </body>
+
 </html>
