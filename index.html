@@ -23,7 +23,7 @@
         }
     </style>
     <script src='intelxdk.js'>
-        $.ui.useOSThemes = false;
+        $.ui.useOSThemes = true;
     </script>
     <script type="text/javascript">
         /* Intel native bridge is available */
@@ -37,6 +37,20 @@
     <link rel="stylesheet" type="text/css" href="css/icons.css" />
     <script src="js/appframework.min.js"></script>
     <script src="js/appframework.ui.min.js"></script>
+    <script src="js/api.js"></script>
+    <script>
+        var srcUrl = 'https://freegeoip.net/json/';
+        document.addEventListener('DOMContentLoaded', function() {
+            var button = document.getElementsByClassName('button')[0];
+            button.addEventListener('click', function() {
+                var ip = document.getElementsByTagName('input')[0].value;
+                getText(srcUrl + ip, function(data) {
+                    var dst = document.getElementById('ipMsg');
+                    show(data, dst);
+                });
+            });
+        })
+    </script>
 </head>
 
 <body>
@@ -44,24 +58,23 @@
         <div id="header">
             <!-- any additional HTML you want can go here -->
         </div>
-        <div id="content">
+        <div id="content" style="font-size: 1.2em;">
             <div class="panel" id="main">
-                <!-- this can really go anywhere in the panel, but we'll put it at the top -->
                 <header>
-                    <a id="backButton">Back...</a>
                     <h1>IP Locator</h1>
                 </header>
                 <label for="ipAddress">IP Address</label>
                 <input id="ipAddress" type="text" placeholder="IP Address">
                 <button class="button" style="width: 100%">Locate It</button>
-                <div id="ipMsg"></div>
+                <div id="ipMsg">
+                </div>
                 <footer>
                     <a class="icon info" href="#info">About</a>
                 </footer>
-                <!-- content goes here -->
             </div>
         </div>
     </div>
+
 </body>
 
 </html>
