@@ -22,6 +22,22 @@
             color: black
         }
     </style>
+    <script type="text/javascript" charset="utf-8" src="xhr.js"></script>
+    <script type="text/javascript" language="javascript">
+        // This event handler is fired when the JS libraries are ready
+        function onDeviceReady() {
+            // Hide splash screen now that the app is ready to run
+            intel.xdk.device.hideSplashScreen();
+
+            setTimeout(function () {
+                $.ui.launch();
+            }, 50);
+
+            checkKeyValidity();
+        }
+        // Initial event handler to detect when Intel library is ready to roll
+        document.addEventListener("intel.xdk.device.ready", onDeviceReady, false);
+        </script>
     <script src='intelxdk.js'>
         $.ui.useOSThemes = true;
     </script>
